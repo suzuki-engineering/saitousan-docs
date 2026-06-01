@@ -5,6 +5,7 @@
 ## Contents
 - `research/`: 技術調査メモ
 - `adr/`: Architecture Decision Records
+- `architecture/`: 構成図とアーキテクチャメモ
 
 ## ADR Flow
 1. 課題や選択肢を整理する。
@@ -16,7 +17,7 @@
 ## Current ADRs
 - `ADR-0001`: 調査結果サイトを静的HTMLで管理する
 - `ADR-0002`: YouTube配信を斉藤さんLIVEへ中継するラッパー構成
-- `ADR-0003`: HTMLを使わずMarkdownで管理する
+- `ADR-0004`: 斉藤さんLIVEの映像をYouTubeへミラーリングする案 rejected
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。
