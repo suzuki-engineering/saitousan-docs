@@ -18,6 +18,7 @@
 - `ADR-0001`: 調査結果サイトを静的HTMLで管理する
 - `ADR-0002`: YouTube配信を斉藤さんLIVEへ中継するラッパー構成
 - `ADR-0004`: 斉藤さんLIVEの映像をYouTubeへミラーリングする案 rejected
+- `ADR-0005`: 斉藤さんコメントを名前付きでYouTubeへフィードバックする
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。
