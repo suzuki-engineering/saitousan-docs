@@ -1,0 +1,22 @@
+skill: saitousan-live-poc-review
+success_threshold: 0.9
+
+checks:
+  - name: skill_contract_tests
+    type: runtime
+    command: python .muse/candidates/saitousan-live-poc-review/tests/test_skill_contract.py
+    required: true
+
+  - name: required_files_exist
+    type: filesystem
+    files:
+      - .muse/candidates/saitousan-live-poc-review/SKILL.md
+      - .muse/candidates/saitousan-live-poc-review/eval.yaml
+      - .muse/candidates/saitousan-live-poc-review/tests/test_skill_contract.py
+      - .muse/candidates/saitousan-live-poc-review/usage.jsonl
+      - .muse/candidates/saitousan-live-poc-review/.memory.md
+    required: true
+
+failure_policy:
+  on_required_check_failed: failure
+  on_optional_check_failed: needs_refinement

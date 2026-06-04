@@ -19,6 +19,7 @@
 - `ADR-0002`: YouTube配信を斉藤さんLIVEへ中継するラッパー構成
 - `ADR-0004`: 斉藤さんLIVEの映像をYouTubeへミラーリングする案 rejected
 - `ADR-0005`: 斉藤さんコメントを名前付きでYouTubeへフィードバックする
+- `ADR-0006`: クラウドコストは段階的PoCの成立後に拡大する proposed
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。
