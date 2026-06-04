@@ -1,0 +1,17 @@
+skill: skill-name
+success_threshold: 0.9
+
+checks:
+  - name: command_exit_code
+    type: runtime
+    required: true
+
+  - name: unit_tests
+    type: pytest
+    command: python -m pytest .codex/skills/skill-name/tests
+    required: true
+
+failure_policy:
+  on_required_check_failed: failure
+  on_optional_check_failed: needs_refinement
+
