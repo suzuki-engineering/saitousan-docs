@@ -20,6 +20,7 @@
 - `ADR-0004`: 斉藤さんLIVEの映像をYouTubeへミラーリングする案 rejected
 - `ADR-0005`: 斉藤さんコメントを名前付きでYouTubeへフィードバックする
 - `ADR-0006`: クラウドコストは段階的PoCの成立後に拡大する proposed
+- `ADR-0007`: SlackとCodexを接続した開発タスク依頼・PR作成ワークフロー proposed
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。
