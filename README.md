@@ -21,6 +21,11 @@
 - `ADR-0005`: 斉藤さんコメントを名前付きでYouTubeへフィードバックする
 - `ADR-0006`: クラウドコストは段階的PoCの成立後に拡大する proposed
 - `ADR-0007`: SlackとCodexを接続した開発タスク依頼・PR作成ワークフロー proposed
+- `ADR-0008`: OTPログインは初期段階では人手ゲートとして扱う
+- `ADR-0009`: 初期PoCのアプリ導入はPlay Storeより検証済みAPK系artifactを優先する
+- `ADR-0010`: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する
+- `ADR-0011`: ADR-0002の一次配信元は当面YouTubeを維持する
+- `ADR-0012`: 開発初期の主導線はUIではなくCLIとprotoにする
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。
