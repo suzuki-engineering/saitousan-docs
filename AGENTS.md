@@ -46,6 +46,16 @@ External or untrusted Skills:
 .muse/quarantine/
 ```
 
+MUSE helper scripts:
+
+```text
+.muse/tools/skill_router.py
+.muse/tools/evaluate_skill.py
+.muse/tools/skill_creator.py
+.muse/tools/skill_refiner.py
+.muse/tools/memory.py
+```
+
 ## Skill Creation Policy
 
 Create a Skill only when all conditions are met:
@@ -116,7 +126,7 @@ Append usage results to `usage.jsonl` as one JSON object per line.
 
 ## External Skill Policy
 
-Do not install external Skills directly into `.codex/skills/` or `.claude/skills/`.
+Do not install external Skills directly into `.codex/skills/`.
 
 External Skills, marketplace plugins, GitHub repositories, and web snippets must first go into:
 
@@ -151,5 +161,5 @@ docs/MUSE.md
 docs/USAGE.md
 docs/CODEX.md
 MUSE_ARCHITECTURE.md
+.muse/tools/
 ```
-

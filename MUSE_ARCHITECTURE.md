@@ -61,7 +61,7 @@ success_criteria:
 
 優先順位:
 
-1. `.claude/skills/` にある本番利用可能な Skill
+1. `.codex/skills/` にある本番利用可能な Skill
 2. `.muse/candidates/` にある検証中 Skill
 3. `.muse/quarantine/` にある外部由来 Skill
 4. Web や公式ドキュメントなどの参考情報
@@ -73,7 +73,7 @@ success_criteria:
 推奨構成:
 
 ```text
-.claude/
+.codex/
   skills/
     graph-calendar/
       SKILL.md
@@ -178,7 +178,7 @@ checks:
 
   - name: has_required_fields
     type: pytest
-    command: python -m pytest .claude/skills/graph-calendar/tests
+    command: python -m pytest .codex/skills/graph-calendar/tests
     required: true
 
 failure_policy:
@@ -203,7 +203,7 @@ failure_policy:
 
 ## 外部 Skill の扱い
 
-外部 Skill、プラグインマーケット、GitHub リポジトリ、Web snippets は、直接 `.claude/skills/` に入れない。
+外部 Skill、プラグインマーケット、GitHub リポジトリ、Web snippets は、直接 `.codex/skills/` に入れない。
 
 取り込み手順:
 
@@ -219,26 +219,29 @@ failure_policy:
 
 Web 情報は Skill そのものではなく、Skill を作るための参考資料として扱う。
 
-## Hooks / Automation
+## Automation
 
-Claude Code などの hook が使える場合は、実行後の検証とログ記録を自動化する。
+Codex でタスク完了後の検証とログ記録を自動化する場合は、`.muse/tools/` の helper を使う。
 
-推奨 hook:
+代表的な処理:
 
 ```text
-PostToolUse
-  - コマンド結果を記録する
-  - 生成/変更ファイルを記録する
-  - runtime check を実行する
+skill_router.py
+  - 既存 Skill を検索する
 
-Stop
+evaluate_skill.py
   - eval.yaml に基づいて検証する
-  - success / failure / needs_review を判定する
+  - reusable / needs_refinement / failed を判定する
+
+memory.py
   - usage.jsonl に追記する
+  - deferred queue を記録する
+
+skill_refiner.py
   - 必要なら .memory.md を更新する
 ```
 
-注意: Stop hook は「タスク完了時」だけではなく、応答終了時にも動く可能性があるため、タスク単位の完了判定とは分けて設計する。
+注意: 本番送信、課金、デプロイ、権限変更を伴う処理は dry-run と human approval を必須にする。
 
 ## 運用レベル
 
@@ -273,7 +276,7 @@ Stop
   evaluations/
   logs/
 
-muse/
+.muse/tools/
   evaluate_skill.py
   skill_router.py
   skill_policy.py
@@ -292,7 +295,7 @@ usage.jsonl
 評価コマンド例:
 
 ```bash
-python muse/evaluate_skill.py graph-calendar
+python .muse/tools/evaluate_skill.py graph-calendar
 ```
 
 出力例:
