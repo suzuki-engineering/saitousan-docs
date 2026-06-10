@@ -201,7 +201,23 @@ Move-Item .muse\candidates\my-skill .codex\skills\my-skill
 
 安全確認後、必要な部分だけ自分用 Skill として `.muse/candidates/` に作り直します。
 
-## 10. Codex への依頼例
+## 10. Python helper の品質チェック
+
+`.muse/tools/` や `.muse/tests/` を変更したら、devbox 経由で format と check を実行します。
+
+```powershell
+devbox run format
+devbox run check
+```
+
+devbox を使わない場合:
+
+```powershell
+python -m unittest discover -s .muse/tests
+python .muse/candidates/saitousan-live-poc-review/tests/test_skill_contract.py
+```
+
+## 11. Codex への依頼例
 
 Skill 候補作成:
 
@@ -227,7 +243,7 @@ Skill 候補作成:
 この Skill の eval.yaml と tests を確認して、reusable / needs_refinement / failed のどれか判定して。
 ```
 
-## 11. 注意
+## 12. 注意
 
 MUSE helper は `.muse/tools/` にあります。
 

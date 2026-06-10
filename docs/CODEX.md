@@ -108,3 +108,10 @@ python .muse/tools/evaluate_skill.py saitousan-live-poc-review
 python .muse/tools/skill_refiner.py saitousan-live-poc-review --record
 python .muse/tools/memory.py enqueue --task "完了した作業の要約" --source codex-main
 ```
+
+Python helper を変更したら、devbox 経由で formatter と check を実行します。
+
+```sh
+devbox run format
+devbox run check
+```

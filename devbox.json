@@ -1,0 +1,32 @@
+{
+  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
+  "packages": [
+    "pyright@latest",
+    "ruff@latest",
+    "yq-go@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "test": [
+        "python -m unittest discover -s .muse/tests",
+        "python .muse/candidates/saitousan-live-poc-review/tests/test_skill_contract.py"
+      ],
+      "lint": [
+        "ruff check .muse/tools .muse/tests .muse/candidates/saitousan-live-poc-review/tests",
+        "ruff format --check .muse/tools .muse/tests .muse/candidates/saitousan-live-poc-review/tests",
+        "pyright"
+      ],
+      "format": [
+        "ruff check --fix .muse/tools .muse/tests .muse/candidates/saitousan-live-poc-review/tests",
+        "ruff format .muse/tools .muse/tests .muse/candidates/saitousan-live-poc-review/tests"
+      ],
+      "check": [
+        "devbox run lint",
+        "devbox run test"
+      ]
+    }
+  }
+}

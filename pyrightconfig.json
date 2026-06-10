@@ -1,0 +1,14 @@
+{
+  "include": [".muse/tools", ".muse/tests"],
+  "extraPaths": [".muse/tools"],
+  "exclude": [
+    "**/__pycache__",
+    ".refs"
+  ],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "standard",
+  "reportMissingTypeStubs": "none",
+  "reportUnknownMemberType": "error",
+  "reportUnknownVariableType": "error",
+  "reportUnknownArgumentType": "error"
+}
