@@ -3,7 +3,7 @@ from __future__ import annotations
 import sys
 import tempfile
 import unittest
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import cast
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -29,6 +29,7 @@ from skill_policy import (  # noqa: E402
     parse_eval_yaml_subset,
 )
 from skill_refiner import recommendations  # noqa: E402
+import skill_router  # noqa: E402
 from skill_router import route  # noqa: E402
 
 EXISTING_SKILL = "saitousan-live-poc-review"
@@ -64,6 +65,41 @@ class MuseCoreTest(unittest.TestCase):
         matches = route("Saitousan LIVE PoC のADRとPhase境界を検討して")
         self.assertTrue(matches)
         self.assertEqual(matches[0]["name"], EXISTING_SKILL)
+
+    def test_router_excludes_quarantine_by_default(self) -> None:
+        calls: list[bool] = []
+        original_iter_skills = skill_router.iter_skills
+        original_read_skill_text = skill_router.read_skill_text
+        quarantine_skill = SkillLocation(
+            name="unsafe-imported-skill",
+            path=REPO_ROOT / ".muse/quarantine/unsafe-imported-skill",
+            root=SkillRoot(
+                "quarantine", "MUSE Quarantine", REPO_ROOT / ".muse/quarantine", 40, False
+            ),
+        )
+
+        def fake_iter_skills(
+            agent: str = "all", include_quarantine: bool = False
+        ) -> list[SkillLocation]:
+            calls.append(include_quarantine)
+            if include_quarantine:
+                return [quarantine_skill]
+            return []
+
+        try:
+            skill_router.iter_skills = fake_iter_skills
+            skill_router.read_skill_text = lambda skill: "unsafe quarantine import workflow"
+
+            self.assertEqual(route("unsafe quarantine import workflow"), [])
+            matches = route("unsafe quarantine import workflow", include_quarantine=True)
+
+            self.assertTrue(matches)
+            self.assertEqual(matches[0]["name"], "unsafe-imported-skill")
+            self.assertEqual(matches[0]["root"], "quarantine")
+            self.assertEqual(calls, [False, True])
+        finally:
+            skill_router.iter_skills = original_iter_skills
+            skill_router.read_skill_text = original_read_skill_text
 
     def test_evaluator_runs_command_and_file_checks(self) -> None:
         skill = find_skill(EXISTING_SKILL)
@@ -190,6 +226,19 @@ class MuseCoreTest(unittest.TestCase):
             "skill: sample\nchecks:\n  - name: one\n    required: true\n"
         )
         self.assertTrue(is_str_mapping(parsed))
+
+    def test_skill_location_relative_path_is_posix_style(self) -> None:
+        class WindowsLikePath:
+            def relative_to(self, root: Path) -> PureWindowsPath:
+                return PureWindowsPath(".muse/candidates/windows-skill")
+
+        skill = SkillLocation(
+            name="windows-skill",
+            path=cast(Path, WindowsLikePath()),
+            root=SkillRoot("candidate", "MUSE Candidate", REPO_ROOT / ".muse/candidates", 30),
+        )
+
+        self.assertEqual(skill.relative_path, ".muse/candidates/windows-skill")
 
 
 if __name__ == "__main__":

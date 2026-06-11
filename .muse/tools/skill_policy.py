@@ -87,7 +87,7 @@ class SkillLocation:
 
     @property
     def relative_path(self) -> str:
-        return str(self.path.relative_to(REPO_ROOT))
+        return self.path.relative_to(REPO_ROOT).as_posix()
 
 
 @dataclass(frozen=True)

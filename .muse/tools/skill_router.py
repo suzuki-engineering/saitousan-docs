@@ -10,6 +10,7 @@ Usage:
     echo "<prompt>" | python .muse/tools/skill_router.py
     python .muse/tools/skill_router.py --prompt "<prompt>"
     python .muse/tools/skill_router.py --prompt "<prompt>" --json
+    python .muse/tools/skill_router.py --prompt "<prompt>" --include-quarantine
 """
 
 from __future__ import annotations
@@ -41,7 +42,7 @@ class SkillMatch(TypedDict):
     hits: list[str]
 
 
-def load_skills(agent: str = "all", include_quarantine: bool = True) -> list[SkillRecord]:
+def load_skills(agent: str = "all", include_quarantine: bool = False) -> list[SkillRecord]:
     skills: list[SkillRecord] = []
     for skill in iter_skills(agent=agent, include_quarantine=include_quarantine):
         text = read_skill_text(skill)
@@ -62,7 +63,7 @@ def route(
     prompt: str,
     threshold: float = 0.15,
     agent: str = "all",
-    include_quarantine: bool = True,
+    include_quarantine: bool = False,
 ) -> list[SkillMatch]:
     results: list[SkillMatch] = []
     for skill in load_skills(agent=agent, include_quarantine=include_quarantine):
@@ -123,9 +124,9 @@ def main() -> int:
     parser.add_argument("--agent", choices=("all", "codex"), default="codex")
     parser.add_argument("--limit", type=int, default=3, help="ヒントに表示する最大件数")
     parser.add_argument(
-        "--no-quarantine",
+        "--include-quarantine",
         action="store_true",
-        help=".muse/quarantine を探索対象から外す",
+        help=".muse/quarantine も探索対象に含める",
     )
     parser.add_argument("--json", dest="output_json", action="store_true", help="JSON で出力")
     args = parser.parse_args()
@@ -139,7 +140,7 @@ def main() -> int:
         prompt,
         threshold=args.threshold,
         agent=args.agent,
-        include_quarantine=not args.no_quarantine,
+        include_quarantine=args.include_quarantine,
     )
 
     if args.output_json:
