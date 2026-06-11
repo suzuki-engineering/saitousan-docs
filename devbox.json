@@ -1,9 +1,10 @@
 {
-  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
   "packages": [
     "pyright@latest",
     "ruff@latest",
-    "yq-go@latest"
+    "yq-go@latest",
+    "python@3.12"
   ],
   "shell": {
     "init_hook": [
