@@ -26,6 +26,7 @@
 - `ADR-0010`: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する
 - `ADR-0011`: ADR-0002の一次配信元は当面YouTubeを維持する
 - `ADR-0012`: 開発初期の主導線はUIではなくCLIとprotoにする
+- `ADR-0013`: Android向けエージェント操作の初期検証はAppium MCPを第一候補にする
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。
