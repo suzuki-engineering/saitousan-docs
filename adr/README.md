@@ -15,6 +15,17 @@
 4. その決定に沿って実装やHTML更新を行う。
 5. 方針が変わったら古いADRを書き換えず、新しいADRで上書き判断を残す。
 
+
+## ADR一覧
+
+- [ADR-0001: Static HTML Research Site](0001-static-html-research-site.md)
+- [ADR-0002: YouTube配信を斉藤さんLIVEへ中継するラッパー構成](0002-youtube-to-saitousan-live-wrapper.md)
+- [ADR-0004: Saitousan LIVE to YouTube Mirror](0004-saitousan-live-to-youtube-mirror.md)
+- [ADR-0005: Saitousan Comment to YouTube](0005-saitousan-comment-to-youtube.md)
+- [ADR-0006: クラウドコストは段階的PoCの成立後に拡大する](0006-cloud-cost-phased-poc.md)
+- [ADR-0007: SlackとCodexを使った開発ワークフロー](0007-slack-codex-development-workflow.md)
+- [ADR-0008: Android SDK/Emulator用EC2 Runtime Host候補とOS方針](0008-android-runtime-ec2-host-candidates.md)
+
 ## 運用ルール
 
 - このプロジェクトで「検討して」と依頼された場合は、基本的にADRとして残す。
