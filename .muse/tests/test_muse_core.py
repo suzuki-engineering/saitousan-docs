@@ -10,6 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_DIR = REPO_ROOT / ".muse" / "tools"
 sys.path.insert(0, str(TOOLS_DIR))
 
+import skill_router  # noqa: E402
 from evaluate_skill import evaluate_skill  # noqa: E402
 from memory import (  # noqa: E402
     append_memory,
@@ -29,7 +30,6 @@ from skill_policy import (  # noqa: E402
     parse_eval_yaml_subset,
 )
 from skill_refiner import recommendations  # noqa: E402
-import skill_router  # noqa: E402
 from skill_router import route  # noqa: E402
 
 EXISTING_SKILL = "saitousan-live-poc-review"
