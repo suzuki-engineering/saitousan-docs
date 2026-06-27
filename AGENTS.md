@@ -56,6 +56,17 @@ MUSE helper scripts:
 .muse/tools/memory.py
 ```
 
+Post-task MUSE custom agent:
+
+```text
+.codex/agents/muse-runner.toml
+```
+
+Use `muse-runner` only after the main user task is complete or when the user
+explicitly asks for MUSE maintenance. The main conversation should keep solving
+the requested task; the custom agent handles reusable-workflow review,
+candidate creation, evaluation, usage records, and memory updates.
+
 ## Skill Creation Policy
 
 Create a Skill only when all conditions are met:

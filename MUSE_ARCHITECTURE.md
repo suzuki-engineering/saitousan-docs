@@ -223,9 +223,19 @@ Web 情報は Skill そのものではなく、Skill を作るための参考資
 
 Codex でタスク完了後の検証とログ記録を自動化する場合は、`.muse/tools/` の helper を使う。
 
+長い post-task review は本流チャットで抱え込まず、Codex custom agent に委譲できる。
+
+```text
+.codex/agents/muse-runner.toml
+```
+
 代表的な処理:
 
 ```text
+muse-runner
+  - 完了済みタスクの再利用性を判定する
+  - Skill 候補作成、評価、memory 更新を本流外で進める
+
 skill_router.py
   - 既存 Skill を検索する
 

@@ -217,7 +217,23 @@ python -m unittest discover -s .muse/tests
 python .muse/candidates/saitousan-live-poc-review/tests/test_skill_contract.py
 ```
 
-## 11. Codex への依頼例
+## 11. MUSE runner を使う
+
+主タスクが完了した後、再利用可能性の判定や Skill 候補の整備は `muse-runner` に任せます。
+
+```text
+.codex/agents/muse-runner.toml
+```
+
+依頼例:
+
+```text
+この作業は完了。muse-runner で再利用できるか確認して、必要なら .muse/candidates/ を更新して。
+```
+
+`muse-runner` は `.muse/tools/` を使って評価し、必要に応じて `usage.jsonl` と `.memory.md` を更新します。本番送信、課金、デプロイ、権限変更、破壊的操作は dry-run または人間承認がある場合だけ扱います。
+
+## 12. Codex への依頼例
 
 Skill 候補作成:
 
@@ -243,7 +259,7 @@ Skill 候補作成:
 この Skill の eval.yaml と tests を確認して、reusable / needs_refinement / failed のどれか判定して。
 ```
 
-## 12. 注意
+## 13. 注意
 
 MUSE helper は `.muse/tools/` にあります。
 
