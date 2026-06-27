@@ -25,6 +25,16 @@
 - [ADR-0006: クラウドコストは段階的PoCの成立後に拡大する](0006-cloud-cost-phased-poc.md)
 - [ADR-0007: SlackとCodexを使った開発ワークフロー](0007-slack-codex-development-workflow.md)
 - [ADR-0008: Android SDK/Emulator用EC2 Runtime Host候補とOS方針](0008-android-runtime-ec2-host-candidates.md)
+- [ADR-0009: ADR-0002の一次配信元は当面YouTubeを維持する](0009-adr-0002-owned-source-rejected-for-initial-phases.md)
+- [ADR-0010: 開発初期の主導線はUIではなくCLIとprotoにする](0010-cli-and-proto-first-control-surface.md)
+- [ADR-0011: OTPログインは初期段階では人手ゲートとして扱う](0011-otp-login-is-a-human-gated-boundary.md)
+- [ADR-0012: 初期PoCのアプリ導入はPlay Storeより検証済みAPK系artifactを優先する](0012-pinned-apk-artifacts-over-play-store-for-poc.md)
+- [ADR-0013: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する](0013-target-duration-maps-to-fixed-live-slots.md)
+- [ADR-0014: Android向けエージェント操作の初期検証はAppium MCPを第一候補にする](0014-appium-mcp-first-for-mobile-agent-evaluation.md)
+- [ADR-0015: 配信開始設定は型付きCLI/API契約として先に固定する](0015-stream-start-configuration-contract.md)
+- [ADR-0016: 配信開始導線の最小PoCはホーム画面から中継開始設定画面到達までに限定する](0016-open-stream-setup-from-home-screen.md)
+- [ADR-0017: 初回起動とアカウント切り替えはOTP本体とは別の事前状態として扱う](0017-login-entry-and-account-switch-are-explicit-prelogin-states.md)
+- [ADR-0018: 同一アカウントの配信系ジョブは直列実行に制限する](0018-serialize-stream-jobs-per-account.md)
 
 ## 運用ルール
 
