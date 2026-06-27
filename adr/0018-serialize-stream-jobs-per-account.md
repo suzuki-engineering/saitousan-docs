@@ -1,12 +1,12 @@
-# ADR-0017: 同一アカウントの配信系ジョブは直列実行に制限する
+# ADR-0018: 同一アカウントの配信系ジョブは直列実行に制限する
 
 ## Status
-Accepted
+Proposed
 
 ## Context
 Issue #16 は、同じアカウントで複数の配信・中継セッションを同時に開くと、後から入ったセッションが先行セッションを停止させる挙動を、既知の仕様または既知バグとして扱い、設計制約へ反映すべきだと指摘している。
 
-この制約は、配信開始フローの細部より上位にある運用安全性の問題である。ADR-0012 が CLI を正式制御面にし、ADR-0016 がログイン前分岐を整理しても、同じアカウントへ並列にジョブを投げられる限り、正常系ジョブが後続ジョブに破壊される危険は残る。
+この制約は、配信開始フローの細部より上位にある運用安全性の問題である。ADR-0010 が CLI を正式制御面の第一候補にし、ADR-0017 がログイン前分岐を整理しても、同じアカウントへ並列にジョブを投げられる限り、正常系ジョブが後続ジョブに破壊される危険は残る。
 
 現時点では、後勝ちセッション衝突をアプリ側で明確に識別できる保証もない。自動リトライやAIエージェントの並列検証まで含めると、事故原因の切り分けが難しくなるため、まずは安全側へ倒す必要がある。
 
@@ -71,9 +71,9 @@ Success criteria:
 ## Notes
 関連ADR:
 
-- `adr/0012-cli-and-proto-first-control-surface.md`
-- `adr/0016-login-entry-and-account-switch-are-explicit-prelogin-states.md`
+- `adr/0010-cli-and-proto-first-control-surface.md`
+- `adr/0017-login-entry-and-account-switch-are-explicit-prelogin-states.md`
 
 Issue:
 
-- https://github.com/ioComk/saitousan-docs/issues/16
+- https://github.com/suzuki-engineering/saitousan-docs/issues/16

@@ -88,6 +88,14 @@ Do not produce:
    - For validation results, append or fill `research/validation-log.md` with date, environment, steps, result, findings, and next actions.
    - When adding architecture notes, include success criteria and rollback/stop conditions.
 
+8. **Triage bulk Issue/PR ADR work before writing**
+   - Inventory all Issues and PRs, including merged and closed items, and synchronize the default branch before assigning ADR numbers.
+   - Treat GitHub numbers used by PRs as PRs, not as missing Issues.
+   - Reuse an existing open PR when it already contains the relevant ADR work; resolve numbering and dependency conflicts instead of creating duplicate ADRs.
+   - Map every Issue to exactly one ADR, an existing ADR, or an explicit non-ADR rationale. Keep new decisions at `Status: Proposed` until the user explicitly accepts them.
+   - Keep architectural boundaries, contracts, sequencing, and safety constraints in ADRs. Keep selectors, measured values, and transient runtime evidence in `research/validation-log.md`.
+   - Recheck time-sensitive cloud, platform, and tool claims against official primary sources before finalizing a proposal.
+
 ## Verification
 
 Run the checks defined in `eval.yaml` for this candidate Skill.
@@ -99,6 +107,7 @@ At minimum, verify that:
 - The Skill states that `検討して` defaults to creating or updating an ADR.
 - The Skill includes phase boundaries and compliance gates.
 - The Skill avoids secrets and does not instruct non-public API reverse engineering, protection bypass, public third-party recording, or automated production posting.
+- Bulk triage verifies unique ADR numbers, matching filename/header IDs, valid statuses, local index links, and a complete Issue-to-ADR map.
 
 ## Memory
 

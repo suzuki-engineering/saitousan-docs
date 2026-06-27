@@ -1,4 +1,4 @@
-# ADR-0016: 初回起動とアカウント切り替えはOTP本体とは別の事前状態として扱う
+# ADR-0017: 初回起動とアカウント切り替えはOTP本体とは別の事前状態として扱う
 
 ## Status
 Proposed
@@ -6,7 +6,7 @@ Proposed
 ## Context
 Issue #15 は、初回起動時の同意画面、オンボーディング、既存アカウント継続、別アカウント選択、不具合情報送信ダイアログといった導線を、OTPログイン本体と分けて整理したいというものだ。
 
-既存ADR-0008 では OTP 取得を `login start` / `login complete` の2段階に分け、人手ゲートとして扱う方針を採っている。しかし、アプリ起動後に必ずすぐメール入力へ入れるとは限らず、初回起動やアカウント切り替えの分岐が残る。この分岐を `login start` の内部へ無条件で埋め込むと、「なぜメール入力へ行けないか」が曖昧になる。
+既存ADR-0011 では OTP 取得を `login start` / `login complete` の2段階に分け、人手ゲートとして扱う案を提示している。しかし、アプリ起動後に必ずすぐメール入力へ入れるとは限らず、初回起動やアカウント切り替えの分岐が残る。この分岐を `login start` の内部へ無条件で埋め込むと、「なぜメール入力へ行けないか」が曖昧になる。
 
 Issue本文が参照する既存Appium実装でも、`prepareLoginEntry`、`createSaitosanConsent`、`createSaitosanPrompts` のように、OTP本体とは別の操作群が既に分かれている。したがって、設計上も事前状態として独立させたほうが一貫する。
 
@@ -72,9 +72,9 @@ Success criteria:
 ## Notes
 関連ADR:
 
-- `adr/0008-otp-login-is-a-human-gated-boundary.md`
-- `adr/0012-cli-and-proto-first-control-surface.md`
+- `adr/0011-otp-login-is-a-human-gated-boundary.md`
+- `adr/0010-cli-and-proto-first-control-surface.md`
 
 Issue:
 
-- https://github.com/ioComk/saitousan-docs/issues/15
+- https://github.com/suzuki-engineering/saitousan-docs/issues/15

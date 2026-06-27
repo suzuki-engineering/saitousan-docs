@@ -65,6 +65,16 @@ class SkillContractTest(unittest.TestCase):
         for phrase in recommended_bad_patterns:
             self.assertNotIn(phrase, LOWER)
 
+    def test_bulk_issue_pr_adr_triage_is_explicit(self):
+        for phrase in [
+            "Inventory all Issues and PRs",
+            "Reuse an existing open PR",
+            "unique ADR numbers",
+            "official primary sources",
+            "complete Issue-to-ADR map",
+        ]:
+            self.assertIn(phrase.lower(), LOWER)
+
 
 if __name__ == "__main__":
     unittest.main()

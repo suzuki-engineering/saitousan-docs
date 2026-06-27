@@ -1,4 +1,4 @@
-# ADR-0009: 初期PoCのアプリ導入はPlay Storeより検証済みAPK系artifactを優先する
+# ADR-0012: 初期PoCのアプリ導入はPlay Storeより検証済みAPK系artifactを優先する
 
 ## Status
 Proposed
@@ -67,6 +67,6 @@ Success criteria:
 次の作業は、`research/validation-log.md` に「Saitousan app version」「artifact source」「SHA256」欄を追加し、最初に使う導入artifactの記録ルールを決めること。
 
 ## Notes
-Issue: https://github.com/ioComk/saitousan-docs/issues/9
+Issue: https://github.com/suzuki-engineering/saitousan-docs/issues/9
 
 このADRはPoC導入方針の記録であり、配布元の適法性や安全性を自動的に保証するものではない。

@@ -1,7 +1,7 @@
-# ADR-0011: ADR-0002の一次配信元は当面YouTubeを維持する
+# ADR-0009: ADR-0002の一次配信元は当面YouTubeを維持する
 
 ## Status
-Accepted
+Proposed
 
 ## Context
 Issue #6 は、ADR-0002で採っている「YouTube Liveを一次配信元にして斉藤さんLIVEへ流す」前提を再評価し、自前の配信起点を持つべきかを問うている。
@@ -71,6 +71,6 @@ Success criteria:
 次の作業はADR-0002の Phase 0/1 を進め、YouTube起点をやめるべき理由が実測で出るかを確認すること。自前配信基盤の検討は、その結果が出るまで新規ADRへ昇格しない。
 
 ## Notes
-Issue: https://github.com/ioComk/saitousan-docs/issues/6
+Issue: https://github.com/suzuki-engineering/saitousan-docs/issues/6
 
 このADRは、ADR-0002の検証範囲を不用意に拡張しないための境界記録である。

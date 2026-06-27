@@ -21,16 +21,17 @@
 - `ADR-0005`: 斉藤さんコメントを名前付きでYouTubeへフィードバックする
 - `ADR-0006`: クラウドコストは段階的PoCの成立後に拡大する proposed
 - `ADR-0007`: SlackとCodexを接続した開発タスク依頼・PR作成ワークフロー proposed
-- `ADR-0008`: OTPログインは初期段階では人手ゲートとして扱う
-- `ADR-0009`: 初期PoCのアプリ導入はPlay Storeより検証済みAPK系artifactを優先する
-- `ADR-0010`: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する
-- `ADR-0011`: ADR-0002の一次配信元は当面YouTubeを維持する
-- `ADR-0012`: 開発初期の主導線はUIではなくCLIとprotoにする
-- `ADR-0013`: Android向けエージェント操作の初期検証はAppium MCPを第一候補にする
-- `ADR-0014`: 配信開始設定は型付きCLI/API契約として先に固定する
-- `ADR-0015`: 配信開始導線の最小PoCはホーム画面から中継開始設定画面到達までに限定する
-- `ADR-0016`: 初回起動とアカウント切り替えはOTP本体とは別の事前状態として扱う
-- `ADR-0017`: 同一アカウントの配信系ジョブは直列実行に制限する
+- `ADR-0008`: Android SDK/Emulator用EC2 Runtime Host候補とOS方針 proposed
+- `ADR-0009`: ADR-0002の一次配信元は当面YouTubeを維持する proposed
+- `ADR-0010`: 開発初期の主導線はUIではなくCLIとprotoにする proposed
+- `ADR-0011`: OTPログインは初期段階では人手ゲートとして扱う proposed
+- `ADR-0012`: 初期PoCのアプリ導入はPlay Storeより検証済みAPK系artifactを優先する proposed
+- `ADR-0013`: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する proposed
+- `ADR-0014`: Android向けエージェント操作の初期検証はAppium MCPを第一候補にする proposed
+- `ADR-0015`: 配信開始設定は型付きCLI/API契約として先に固定する proposed
+- `ADR-0016`: 配信開始導線の最小PoCはホーム画面から中継開始設定画面到達までに限定する proposed
+- `ADR-0017`: 初回起動とアカウント切り替えはOTP本体とは別の事前状態として扱う proposed
+- `ADR-0018`: 同一アカウントの配信系ジョブは直列実行に制限する proposed
 
 ## Local Usage
 MarkdownファイルをエディタまたはGitHub上で読む。

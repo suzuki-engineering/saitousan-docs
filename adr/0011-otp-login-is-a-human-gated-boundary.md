@@ -1,7 +1,7 @@
-# ADR-0008: OTPログインは初期段階では人手ゲートとして扱う
+# ADR-0011: OTPログインは初期段階では人手ゲートとして扱う
 
 ## Status
-Accepted
+Proposed
 
 ## Context
 Issue #8 は、斉藤さんアプリのログインがメールOTP前提であり、CLIや自動化からどう扱うべきかを問うている。
@@ -73,4 +73,4 @@ Success criteria:
 次の作業は、`login start` / `login complete` / `status` の状態遷移をPoC仕様へ落とし、OTP待ち・期限切れ・再送のログ記録項目を定義すること。
 
 ## Notes
-Issue: https://github.com/ioComk/saitousan-docs/issues/8
+Issue: https://github.com/suzuki-engineering/saitousan-docs/issues/8

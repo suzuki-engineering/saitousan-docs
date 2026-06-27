@@ -1,4 +1,4 @@
-# ADR-0010: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する
+# ADR-0013: 配信時間入力は目標時間にし、固定枠選択は内部で吸収する
 
 ## Status
 Proposed
@@ -66,4 +66,4 @@ Success criteria:
 次の作業は、時間変換ルールをPoC仕様に追加し、60分超要求時のエラーメッセージと手動継続手順を定義すること。
 
 ## Notes
-Issue: https://github.com/ioComk/saitousan-docs/issues/10
+Issue: https://github.com/suzuki-engineering/saitousan-docs/issues/10

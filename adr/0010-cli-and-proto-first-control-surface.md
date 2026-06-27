@@ -1,7 +1,7 @@
-# ADR-0012: 開発初期の主導線はUIではなくCLIとprotoにする
+# ADR-0010: 開発初期の主導線はUIではなくCLIとprotoにする
 
 ## Status
-Accepted
+Proposed
 
 ## Context
 Issue #7 は、開発初期に管理UIを先行させるのではなく、CLIとgRPC互換API契約を主導線にすべきかを問うている。
@@ -69,4 +69,4 @@ Success criteria:
 次は、ADR-0002の Phase 0/1 に必要な操作だけを対象に、CLIの最小コマンド境界とJSON出力例を別メモまたはPoC仕様に落とす。
 
 ## Notes
-Issue: https://github.com/ioComk/saitousan-docs/issues/7
+Issue: https://github.com/suzuki-engineering/saitousan-docs/issues/7

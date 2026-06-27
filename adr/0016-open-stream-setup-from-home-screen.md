@@ -1,4 +1,4 @@
-# ADR-0015: 配信開始導線の最小PoCはホーム画面から中継開始設定画面到達までに限定する
+# ADR-0016: 配信開始導線の最小PoCはホーム画面から中継開始設定画面到達までに限定する
 
 ## Status
 Proposed
@@ -6,7 +6,7 @@ Proposed
 ## Context
 Issue #14 は、ログイン済みホーム画面から「ハンカチ中継」経由で中継開始設定画面まで進む操作を、Appiumで安定して扱えるようにしたいというものだ。
 
-既存ADRでは、ADR-0008 がOTPログインを人手ゲートとし、ADR-0010 と ADR-0014 が配信開始の契約面を整理している。しかし、配信設定値をどれだけ整理しても、ホーム画面から正しい導線で設定画面へ入れなければ実装は前に進まない。
+既存ADRでは、ADR-0011 がOTPログインを人手ゲートとし、ADR-0013 と ADR-0015 が配信開始の契約面を整理している。しかし、配信設定値をどれだけ整理しても、ホーム画面から正しい導線で設定画面へ入れなければ実装は前に進まない。
 
 一方、この段階でタイトル入力や通知設定まで一気に扱うと、ホーム画面の要素特定、画面遷移判定、設定入力、配信開始確認が1つの失敗面に混ざる。初期PoCでは、まず「設定画面まで到達できるか」を独立した境界として確定する必要がある。
 
@@ -75,9 +75,9 @@ Success criteria:
 ## Notes
 関連ADR:
 
-- `adr/0008-otp-login-is-a-human-gated-boundary.md`
-- `adr/0014-stream-start-configuration-contract.md`
+- `adr/0011-otp-login-is-a-human-gated-boundary.md`
+- `adr/0015-stream-start-configuration-contract.md`
 
 Issue:
 
-- https://github.com/ioComk/saitousan-docs/issues/14
+- https://github.com/suzuki-engineering/saitousan-docs/issues/14

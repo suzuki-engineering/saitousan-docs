@@ -1,4 +1,4 @@
-# ADR-0013: Android向けエージェント操作の初期検証はAppium MCPを第一候補にする
+# ADR-0014: Android向けエージェント操作の初期検証はAppium MCPを第一候補にする
 
 ## Status
 Proposed
@@ -7,11 +7,11 @@ Proposed
 
 Issue #11 は、Playwright MCP のように AI エージェントから扱いやすい操作面を Android / Appium でも持てるかを問うている。
 
-このリポジトリの既存方針では、まず ADR-0002 の Phase 0/1 で Android 実行環境、アプリ起動、ログイン導線、最低限の操作、映像入力差し替えの成立可否を確かめる必要がある。また ADR-0012 では、製品側の正式な制御面は CLI と proto を主導線にする方針を採っている。
+このリポジトリの既存方針では、まず ADR-0002 の Phase 0/1 で Android 実行環境、アプリ起動、ログイン導線、最低限の操作、映像入力差し替えの成立可否を確かめる必要がある。また ADR-0010 では、製品側の正式な制御面は CLI と proto を主導線にする案を提示している。
 
 一方で、調査や PoC の現場では、AI エージェントや人手オペレーターが Android 画面を探索し、スクリーンショット、要素探索、tap/type、画面遷移を素早く検証できる補助操作面があると、Appium スクリプトを毎回手書きするより反復が速い可能性がある。
 
-2026-06-12 時点で確認した Appium 公式ドキュメントでは、`appium-mcp` が Appium ecosystem の related tools として掲載され、`npx appium-mcp@latest` と `ANDROID_HOME` を用いる MCP client 設定例が案内されている。Android 自動化では、Appium 本体に加えて Android SDK、`adb`、JDK、UiAutomator2 driver などの前提も必要であり、ブラウザ向けの Playwright MCP より環境依存が大きい。
+2026-06-27 時点の Appium 公式ドキュメントでは、`appium-mcp` はAppium teamが保守するOfficial Toolとして掲載され、`npx appium-mcp@latest` と `ANDROID_HOME` を用いる MCP client 設定例が案内されている。Android 自動化では、Appium 本体に加えて Android SDK、`adb`、JDK、UiAutomator2 driver などの前提も必要であり、ブラウザ向けの Playwright MCP より環境依存が大きい。
 
 したがって今必要なのは、「モバイル操作MCPを正式採用するか」ではなく、「最小検証で最も妥当な第一候補は何か」と「どの時点で不採用または代替候補へ切り替えるか」を先に記録することである。
 
@@ -21,7 +21,7 @@ Issue #11 は、Playwright MCP のように AI エージェントから扱いや
 
 ただし、これは製品の正式制御面を MCP にする決定ではない。位置づけは次の通りとする。
 
-- 正式な制御面: ADR-0012 の通り CLI + proto を維持する。
+- 正式な制御面: ADR-0010 の通り CLI + proto を第一候補にする。
 - Appium MCP: 調査、探索、PoC、画面要素確認、最小操作検証の補助ツールとして使う。
 - 代替候補比較: 第一候補が安定しない場合のみ `@gavrix/appium-mcp` などを同条件で比較する。
 - 直接 Appium baseline: MCP の可否とは別に、`appium` + `uiautomator2` + `adb` でセッション作成できることを最低基準にする。
@@ -109,17 +109,17 @@ Success criteria:
 関連ADR:
 
 - `adr/0002-youtube-to-saitousan-live-wrapper.md`
-- `adr/0012-cli-and-proto-first-control-surface.md`
+- `adr/0010-cli-and-proto-first-control-surface.md`
 
 Issue:
 
-- https://github.com/ioComk/saitousan-docs/issues/11
+- https://github.com/suzuki-engineering/saitousan-docs/issues/11
 
-2026-06-12 時点で確認した公式情報:
+2026-06-27 時点で確認した公式情報:
 
 - Appium Docs, Related Tools, `Appium MCP`
-  - https://appium.io/docs/en/3.4/ecosystem/tools/#appium-mcp
+  - https://appium.io/docs/en/latest/ecosystem/tools/#appium-mcp
 - Appium Docs, Install Appium
-  - https://appium.io/docs/en/2.0/quickstart/install/
+  - https://appium.io/docs/en/latest/quickstart/install/
 - GitHub repository, `appium/appium-mcp`
   - https://github.com/appium/appium-mcp
