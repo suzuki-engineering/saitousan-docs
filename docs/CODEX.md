@@ -4,7 +4,7 @@
 
 このリポジトリを Codex で開いたときに、MUSE 方針で Skill を作成・評価・管理するための手順です。
 
-Claude Code 用の `.claude/CLAUDE.md` に対して、Codex 用の入口は `AGENTS.md` です。
+Codex 用の入口は `AGENTS.md` です。
 
 ## 読み込み対象
 
@@ -14,6 +14,7 @@ Codex 向け:
 AGENTS.md
 .codex/CODEX.md
 .codex/skills/
+.muse/tools/
 ```
 
 共通ドキュメント:
@@ -76,24 +77,16 @@ secrets が含まれていない
 Move-Item .muse\candidates\my-skill .codex\skills\my-skill
 ```
 
-## Claude 用との違い
-
-Claude 用:
-
-```text
-.claude/CLAUDE.md
-.claude/skills/
-```
-
-Codex 用:
+## Codex 用の構成
 
 ```text
 AGENTS.md
 .codex/CODEX.md
 .codex/skills/
+.muse/tools/
 ```
 
-共通:
+MUSE 作業用:
 
 ```text
 .muse/candidates/
@@ -105,15 +98,13 @@ docs/
 
 ## 注意
 
-現状では、Codex 用の MUSE router / evaluator / refiner はまだ未実装です。
+Codex 用の MUSE router / evaluator / creator / refiner / memory は `.muse/tools/` にあります。
 
-つまり、`AGENTS.md` と `.codex/` は運用ポリシーとテンプレートです。完全自動化するには、次のような実行コードが必要です。
+代表的なコマンド:
 
-```text
-muse/evaluate_skill.py
-muse/skill_router.py
-muse/skill_creator.py
-muse/skill_refiner.py
-muse/memory.py
+```sh
+python .muse/tools/skill_router.py --prompt "タスク内容" --json
+python .muse/tools/evaluate_skill.py saitousan-live-poc-review
+python .muse/tools/skill_refiner.py saitousan-live-poc-review --record
+python .muse/tools/memory.py enqueue --task "完了した作業の要約" --source codex-main
 ```
-

@@ -39,7 +39,7 @@ User Task
 このリポジトリでは、Skill は次のようなディレクトリとして扱います。
 
 ```text
-.claude/skills/<skill-name>/
+.codex/skills/<skill-name>/
   SKILL.md
   eval.yaml
   tests/
@@ -104,7 +104,7 @@ Skill Bank は、テスト済み Skill の保存場所です。
 このリポジトリでは次を Skill Bank とします。
 
 ```text
-.claude/skills/
+.codex/skills/
 ```
 
 未検証の Skill はここに置きません。
@@ -116,7 +116,7 @@ Skill Bank は、テスト済み Skill の保存場所です。
 
 ## 外部 Skill の扱い
 
-外部 Skill、GitHub リポジトリ、プラグインマーケット、Web snippets は直接 `.claude/skills/` に入れません。
+外部 Skill、GitHub リポジトリ、プラグインマーケット、Web snippets は直接 `.codex/skills/` に入れません。
 
 安全な流れ:
 
@@ -129,27 +129,26 @@ Skill Bank は、テスト済み Skill の保存場所です。
   -> tests/ と eval.yaml を追加
   -> dry-run
   -> 承認
-  -> .claude/skills/ に昇格
+  -> .codex/skills/ に昇格
 ```
 
 ## このリポジトリでの位置づけ
 
 このリポジトリは、MUSE 論文の全機能を実行する完成システムではありません。
 
-現時点では、Claude Code に読み込ませるための運用ポリシーと Skill 管理の土台です。
+現時点では、Codex に読み込ませるための運用ポリシー、Skill 管理の土台、MUSE helper の最小実装です。
 
 論文通りの完全実装に近づけるには、次の実行コードが必要です。
 
 ```text
-muse/evaluate_skill.py   eval.yaml を読み、tests と runtime checks を実行する
-muse/skill_router.py     既存 Skill を検索して選ぶ
-muse/skill_creator.py    成功手順から Skill 候補を作る
-muse/skill_refiner.py    失敗した Skill を修正する
-muse/memory.py           usage.jsonl と .memory.md を読み書きする
+.muse/tools/evaluate_skill.py   eval.yaml を読み、tests と runtime checks を実行する
+.muse/tools/skill_router.py     既存 Skill を検索して選ぶ
+.muse/tools/skill_creator.py    成功手順から Skill 候補を作る
+.muse/tools/skill_refiner.py    失敗した Skill を修正する
+.muse/tools/memory.py           usage.jsonl と .memory.md を読み書きする
 ```
 
 ## 参考
 
 - MUSE-Autoskill: Self-Evolving Agents via Skill Creation, Memory, Management, and Evaluation
 - arXiv: https://arxiv.org/abs/2605.27366
-
