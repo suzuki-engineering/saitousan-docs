@@ -4,7 +4,7 @@
 
 GitHub repository `suzuki-engineering/saitousan-docs` の全Issue・全PR・既存ADRを確認した。
 
-- Issue: 11件、すべてOpen、コメント0件
+- Issue: 12件、すべてOpen、コメント0件
 - PR: 6件
   - Open: 4件
   - Merged: 2件
